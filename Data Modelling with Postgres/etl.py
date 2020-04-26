@@ -60,16 +60,19 @@ def process_log_file(cur, filepath):
     for index, row in df.iterrows():
         
         # get songid and artistid from song and artist tables
+        #print(row.song, row.artist, row.length)
         cur.execute(song_select, (row.song, row.artist, row.length))
         results = cur.fetchone()
-        
+        if results:
+            print(results)
         if results:
             songid, artistid = results
         else:
             songid, artistid = None, None
 
         # insert songplay record
-        songplay_data = (1,'2018-11-29 00:00:57.796','73','paid',songid,artistid,87,'Lake Havasu City-Kingman, AZ','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4')
+        songplay_data = (row.ts, row.userId, row.level, songid, artistid \
+                    , row.sessionId, row.location, row.userAgent)
         cur.execute(songplay_table_insert, songplay_data)
 
 
