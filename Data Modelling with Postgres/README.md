@@ -34,5 +34,5 @@ etl.py - loads the json files for songs and logs dataset from the data folder on
 # Steps to Run
 
 In the project directory, execute:
-python create_tables.py
-python etl.py
+1. python create_tables.py
+2. python etl.py
