@@ -58,7 +58,7 @@ num_songs integer
 songplay_table_create = """
 CREATE table if not exists songplays
 (songplay_id integer primary key
-,start_time timestamp not null -- sortkey
+,start_time timestamp not null sortkey
 , user_id integer not null
 , level varchar
 , song_id varchar not null
@@ -66,45 +66,45 @@ CREATE table if not exists songplays
 , session_id integer
 , location varchar
 , user_agent varchar)
--- diststyle even;
+diststyle even;
 """
 
 user_table_create = """CREATE table if not exists users
-(user_id int primary key -- sortkey
+(user_id int sortkey primary key
 , first_name varchar not null
 , last_name varchar not null
 , gender varchar not null
 , level varchar not null)
--- diststyle all;
+diststyle all;
 """
 
 song_table_create = """CREATE table if not exists songs
-(song_id varchar primary key -- sortkey
+(song_id varchar sortkey primary key
 , title varchar not null
 , artist_id varchar not null
 , year integer not null
 , duration float)
--- diststyle all;
+diststyle all;
 """
 
 artist_table_create = """CREATE table if not exists artists
-(artist_id varchar primary key -- sortkey
+(artist_id varchar sortkey primary key
 , name varchar not null
 , location varchar
 , latitude float
 , longitude float )
--- diststyle all;
+diststyle all;
 """
 
 time_table_create = """CREATE table if not exists time
-(start_time timestamp primary key -- sortkey
+(start_time timestamp sortkey primary key
 , hour integer not null
 , day  integer not null
 , week  integer not null
 , month  integer not null
 , year  integer not null
 , weekday varchar not null)
--- diststyle all;
+diststyle all;
 """
 
 # STAGING TABLES
