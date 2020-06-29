@@ -36,8 +36,7 @@ status integer,
 ts timestamp,
 user_agent varchar,
 user_id integer
-)
--- diststyle even;
+) diststyle even;
 """
 
 staging_songs_table_create = """create table stg_songs(
@@ -52,7 +51,7 @@ num_songs integer
 ,duration float
 ,year int
 )
--- diststyle even;
+diststyle even;
 """
 
 songplay_table_create = """
