@@ -1,2 +1,2 @@
-notebook==6.0.3
+notebook==6.4.1
 cassandra-driver==3.24.0
